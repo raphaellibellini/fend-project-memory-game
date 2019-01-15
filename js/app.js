@@ -19,6 +19,7 @@ let cards = [
 'fa-paper-plane-o', 
 'fa-cube'
 ];
+let openedCards = [];
 
 /*
  * Display the cards on the page
@@ -37,6 +38,7 @@ function displayCards(){
     $('.deck').append(fragment);
 }
 displayCards();
+
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
@@ -64,3 +66,10 @@ function shuffle(array) {
  *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
+function turnCard(card){
+    $(card).toggleClass("open show");
+}
+
+$('.deck').on('click', function (evt){
+    turnCard(evt.target);
+});
