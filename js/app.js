@@ -26,6 +26,17 @@ let cards = [
  *   - loop through each card and create its HTML
  *   - add each card's HTML to the page
  */
+function displayCards(){
+    shuffle(cards);
+
+    // using fragment to improve performance
+    const fragment = document.createDocumentFragment();
+    for(const card of cards){
+        $(fragment).append('<li class="card"><i class="'+ card +'"></i></li>');
+    }
+    $('.deck').append(fragment);
+}
+displayCards();
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
