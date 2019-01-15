@@ -70,6 +70,12 @@ function turnCard(card){
     $(card).toggleClass("open show");
 }
 
+function addOpenedCards(card){
+    openedCards.push(card);
+    console.log(openedCards);
+}
+
 $('.deck').on('click', function (evt){
     turnCard(evt.target);
+    addOpenedCards(evt.target);
 });
