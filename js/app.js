@@ -70,12 +70,36 @@ function turnCard(card){
     $(card).toggleClass("open show");
 }
 
-function addOpenedCards(card){
+function addOpenedCard(card){
     openedCards.push(card);
-    console.log(openedCards);
+    //console.log(openedCards);
+}
+
+function match(){
+    if(openedCards[0].children[0].classList[1] === 
+    openedCards[1].children[0].classList[1]){
+        console.log("cartas iguais");
+        openedCards[0].classList.toggle('open');
+        openedCards[1].classList.toggle('open');
+        openedCards[0].classList.toggle('show');
+        openedCards[1].classList.toggle('show');
+        openedCards[0].classList.toggle('match');
+        openedCards[1].classList.toggle('match');
+        openedCards = [];
+    }else{
+        console.log("cartas diferentes");
+        openedCards[0].classList.toggle('open');
+        openedCards[1].classList.toggle('open');
+        openedCards[0].classList.toggle('show');
+        openedCards[1].classList.toggle('show');
+        openedCards = [];
+    }
 }
 
 $('.deck').on('click', function (evt){
     turnCard(evt.target);
-    addOpenedCards(evt.target);
+    addOpenedCard(evt.target);
+    if(openedCards.length === 2){
+        match();
+    }
 });
