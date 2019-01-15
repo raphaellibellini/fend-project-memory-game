@@ -33,7 +33,7 @@ function displayCards(){
     // using fragment to improve performance
     const fragment = document.createDocumentFragment();
     for(const card of cards){
-        $(fragment).append('<li class="card"><i class="'+ card +'"></i></li>');
+        $(fragment).append('<li class="card"><i class="fa ' + card +'"></i></li>');
     }
     $('.deck').append(fragment);
 }
