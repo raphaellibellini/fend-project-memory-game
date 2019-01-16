@@ -74,7 +74,6 @@ function turnCard(card){
 
 function addOpenedCard(card){
     openedCards.push(card);
-    //console.log(openedCards);
 }
 
 function match(){
@@ -91,11 +90,13 @@ function match(){
         openedCards = [];
     }else{
         console.log("cartas diferentes");
-        openedCards[0].classList.toggle('open');
-        openedCards[1].classList.toggle('open');
-        openedCards[0].classList.toggle('show');
-        openedCards[1].classList.toggle('show');
-        openedCards = [];
+        setTimeout(function(){
+            openedCards[0].classList.toggle('open');
+            openedCards[1].classList.toggle('open');
+            openedCards[0].classList.toggle('show');
+            openedCards[1].classList.toggle('show');
+            openedCards = [];
+        }, 800);
     }
 }
 
