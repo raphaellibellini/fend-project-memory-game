@@ -107,6 +107,18 @@ function incrementMoves(){
     }
 }
 
+function decreaseStar(){
+    if(moves > 11){
+        $(".stars").find("#star1").remove();
+    }
+    if(moves > 21){
+        $(".stars").find("#star2").remove();
+    }
+    if(moves > 31){
+        $(".stars").find("#star3").remove();
+    }
+}
+
 function win(){
     if(hits === 8){
         console.log("YOU WIN!");
@@ -115,6 +127,7 @@ function win(){
 
 $('.deck').on('click', function (evt){
     //console.log(evt.target);
+    // sometimes click on <li> and another on <i>
     if((evt.target).classList.contains('card')){
         if(!(evt.target).classList.contains('show')){
             turnCard(evt.target);
@@ -122,6 +135,7 @@ $('.deck').on('click', function (evt){
         }
         if(openedCards.length === 2){
             incrementMoves();
+            decreaseStar();
             match();
         }
         win();
