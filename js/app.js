@@ -69,27 +69,25 @@ function shuffle(array) {
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
 function turnCard(card){
+    //console.log("VIREI");
     $(card).toggleClass("open show");
 }
 
 function addOpenedCard(card){
+    //console.log(openedCards);
     openedCards.push(card);
 }
 
 function match(){
     if(openedCards[0].children[0].classList[1] === 
     openedCards[1].children[0].classList[1]){
-        console.log("cartas iguais");
-        $(openedCards[0]).toggleClass("open");
-        $(openedCards[1]).toggleClass("open");
-        $(openedCards[0]).toggleClass("show");
-        $(openedCards[1]).toggleClass("show");
+        //console.log("cartas iguais");
         $(openedCards[0]).toggleClass("match");
         $(openedCards[1]).toggleClass("match");
         hits++;
         openedCards = [];
     }else{
-        console.log("cartas diferentes");
+        //console.log("cartas diferentes");
         setTimeout(function(){
             $(openedCards[0]).toggleClass("open");
             $(openedCards[1]).toggleClass("open");
@@ -103,7 +101,6 @@ function match(){
 function incrementMoves(){
     moves++;
     if(moves === 1){
-        console.log("ENTROU");
         document.querySelector('.moves').textContent = moves + " Move";
     }else{
         document.querySelector('.moves').textContent = moves + " Moves";
@@ -117,11 +114,17 @@ function win(){
 }
 
 $('.deck').on('click', function (evt){
-    turnCard(evt.target);
-    addOpenedCard(evt.target);
-    if(openedCards.length === 2){
-        incrementMoves();
-        match();
+    //console.log(evt.target);
+    if((evt.target).classList.contains('card')){
+        if(!(evt.target).classList.contains('show')){
+            turnCard(evt.target);
+            addOpenedCard(evt.target);
+        }
+        if(openedCards.length === 2){
+            incrementMoves();
+            match();
+        }
+        win();
     }
-    win();
+    
 });
