@@ -80,23 +80,23 @@ function match(){
     if(openedCards[0].children[0].classList[1] === 
     openedCards[1].children[0].classList[1]){
         console.log("cartas iguais");
-        openedCards[0].classList.toggle('open');
-        openedCards[1].classList.toggle('open');
-        openedCards[0].classList.toggle('show');
-        openedCards[1].classList.toggle('show');
-        openedCards[0].classList.toggle('match');
-        openedCards[1].classList.toggle('match');
+        $(openedCards[0]).toggleClass("open");
+        $(openedCards[1]).toggleClass("open");
+        $(openedCards[0]).toggleClass("show");
+        $(openedCards[1]).toggleClass("show");
+        $(openedCards[0]).toggleClass("match");
+        $(openedCards[1]).toggleClass("match");
         hits++;
         openedCards = [];
     }else{
         console.log("cartas diferentes");
         setTimeout(function(){
-            openedCards[0].classList.toggle('open');
-            openedCards[1].classList.toggle('open');
-            openedCards[0].classList.toggle('show');
-            openedCards[1].classList.toggle('show');
+            $(openedCards[0]).toggleClass("open");
+            $(openedCards[1]).toggleClass("open");
+            $(openedCards[0]).toggleClass("show");
+            $(openedCards[1]).toggleClass("show");
             openedCards = [];
-        }, 800);
+        }, 900);
     }
 }
 
