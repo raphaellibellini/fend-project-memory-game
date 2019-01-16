@@ -125,6 +125,21 @@ function win(){
     }
 }
 
+function restart(){
+    openedCards = [];
+
+    moves = 0;
+    $('.moves').text("0 moves");
+
+    hits = 0;
+
+    $('.stars').children().remove();
+    $('.stars').append('<li><i class="fa fa-star" id="star1"></i></li><li><i class="fa fa-star" id="star2"></i></li><li><i class="fa fa-star" id="star3"></i></li>');
+
+    $('.deck').children().remove();
+    displayCards();
+}
+
 $('.deck').on('click', function (evt){
     //console.log(evt.target);
     // sometimes click on <li> and another on <i>
@@ -140,5 +155,6 @@ $('.deck').on('click', function (evt){
         }
         win();
     }
-    
 });
+
+$('.restart').on('click', restart);
