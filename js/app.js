@@ -94,7 +94,7 @@ function match(){
             $(openedCards[0]).toggleClass("show");
             $(openedCards[1]).toggleClass("show");
             openedCards = [];
-        }, 900);
+        }, 250);
     }
 }
 
