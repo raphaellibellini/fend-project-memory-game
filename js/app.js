@@ -21,6 +21,7 @@ let cards = [
 ];
 let openedCards = [];
 let moves = 0;
+let hits = 0;
 
 /*
  * Display the cards on the page
@@ -86,6 +87,7 @@ function match(){
         openedCards[1].classList.toggle('show');
         openedCards[0].classList.toggle('match');
         openedCards[1].classList.toggle('match');
+        hits++;
         openedCards = [];
     }else{
         console.log("cartas diferentes");
@@ -107,6 +109,12 @@ function incrementMoves(){
     }
 }
 
+function win(){
+    if(hits === 8){
+        console.log("YOU WIN!");
+    }
+}
+
 $('.deck').on('click', function (evt){
     turnCard(evt.target);
     addOpenedCard(evt.target);
@@ -114,4 +122,5 @@ $('.deck').on('click', function (evt){
         incrementMoves();
         match();
     }
+    win();
 });
