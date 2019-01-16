@@ -20,6 +20,7 @@ let cards = [
 'fa-cube'
 ];
 let openedCards = [];
+let moves = 0;
 
 /*
  * Display the cards on the page
@@ -96,10 +97,21 @@ function match(){
     }
 }
 
+function incrementMoves(){
+    moves++;
+    if(moves === 1){
+        console.log("ENTROU");
+        document.querySelector('.moves').textContent = moves + " Move";
+    }else{
+        document.querySelector('.moves').textContent = moves + " Moves";
+    }
+}
+
 $('.deck').on('click', function (evt){
     turnCard(evt.target);
     addOpenedCard(evt.target);
     if(openedCards.length === 2){
+        incrementMoves();
         match();
     }
 });
