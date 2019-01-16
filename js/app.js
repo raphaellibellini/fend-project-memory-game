@@ -101,9 +101,9 @@ function match(){
 function incrementMoves(){
     moves++;
     if(moves === 1){
-        document.querySelector('.moves').textContent = moves + " Move";
+        $('.moves').text(moves + " Move");
     }else{
-        document.querySelector('.moves').textContent = moves + " Moves";
+        $('.moves').text(moves + " Moves");
     }
 }
 
