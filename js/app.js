@@ -22,6 +22,29 @@ let cards = [
 let openedCards = [];
 let moves = 0;
 let hits = 0;
+let minutes = 0;
+let i = 1;
+
+function timer () {
+    if(i < 10){
+        $('#seconds').text("0" + i);
+    }else{
+        $('#seconds').text(i);
+    }
+
+    if(minutes < 10){
+        $('#minutes').text("0" + minutes);
+    }else{
+        $('#minutes').text(minutes);
+    }
+    
+    console.log(minutes + ":" + i);
+    i++;
+    if(i === 60) {
+        i = 0;
+        minutes++;   
+    }
+}
 
 /*
  * Display the cards on the page
@@ -40,6 +63,7 @@ function displayCards(){
     $('.deck').append(fragment);
 }
 displayCards();
+let clock = setInterval(timer, 1000);
 
 
 // Shuffle function from http://stackoverflow.com/a/2450976
@@ -120,16 +144,25 @@ function decreaseStar(){
 }
 
 function win(){
-    if(hits === 8){
-        console.log("YOU WIN!");
+    if(hits === 2){
+        //MODAL
     }
 }
 
 function restart(){
+    clearInterval(clock);
+    i = 1;
+    $('#seconds').text("00");
+    
+    minutes = 0;
+    $('#minutes').text("0" + minutes);
+    
+    clock = setInterval(timer, 1000);
+
     openedCards = [];
 
     moves = 0;
-    $('.moves').text("0 moves");
+    $('.moves').text("0 Moves");
 
     hits = 0;
 
@@ -139,6 +172,7 @@ function restart(){
     $('.deck').children().remove();
     displayCards();
 }
+
 
 $('.deck').on('click', function (evt){
     //console.log(evt.target);
