@@ -135,11 +135,8 @@ function decreaseStar(){
     if(moves > 11){
         $(".stars").find("#star1").remove();
     }
-    if(moves > 21){
+    if(moves > 22){
         $(".stars").find("#star2").remove();
-    }
-    if(moves > 31){
-        $(".stars").find("#star3").remove();
     }
 }
 
