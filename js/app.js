@@ -145,7 +145,29 @@ function decreaseStar(){
 
 function win(){
     if(hits === 2){
-        //MODAL
+        clearInterval(clock);
+
+        let modal = document.getElementById('myModal');
+        let btnClose = document.getElementById('btnClose');
+        let btnPlay = document.getElementById('btnPlay');
+
+        modal.style.display = "block";
+
+        let modalTime = $('#minutes').text() + ":" + $('#seconds').text();
+        $('#playerTime').text("Your time was " + modalTime);
+
+        let htmlStars = $('.stars').html();
+        $('.playerStars').html(htmlStars);
+        $('.playerStars').toggleClass("stars");
+        $('.modal-body').toggleClass("score-panel");
+
+        btnClose.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        btnPlay.onclick = function(){
+            
+        }
     }
 }
 
