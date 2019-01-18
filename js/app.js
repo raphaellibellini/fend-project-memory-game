@@ -166,7 +166,8 @@ function win(){
         }
 
         btnPlay.onclick = function(){
-            
+            modal.style.display ="none";
+            restart();
         }
     }
 }
