@@ -141,11 +141,10 @@ function decreaseStar(){
 }
 
 function win(){
-    if(hits === 2){
+    if(hits === 8){
         clearInterval(clock);
 
         let modal = document.getElementById('myModal');
-        let btnClose = document.getElementById('btnClose');
         let btnPlay = document.getElementById('btnPlay');
 
         modal.style.display = "block";
@@ -157,10 +156,6 @@ function win(){
         $('.playerStars').html(htmlStars);
         $('.playerStars').toggleClass("stars");
         $('.modal-body').toggleClass("score-panel");
-
-        btnClose.onclick = function() {
-            modal.style.display = "none";
-        }
 
         btnPlay.onclick = function(){
             modal.style.display ="none";
