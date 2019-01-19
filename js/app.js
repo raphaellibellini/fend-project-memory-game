@@ -182,7 +182,11 @@ function restart(){
     hits = 0;
 
     $('.stars').children().remove();
-    $('.stars').append('<li><i class="fa fa-star" id="star1"></i></li><li><i class="fa fa-star" id="star2"></i></li><li><i class="fa fa-star" id="star3"></i></li>');
+    let codeStars = `
+    <li><i class="fa fa-star" id="star1"></i></li>
+    <li><i class="fa fa-star" id="star2"></i></li>
+    <li><i class="fa fa-star" id="star3"></i></li>`;    
+    $('.stars').append(codeStars);
 
     $('.deck').children().remove();
     displayCards();
