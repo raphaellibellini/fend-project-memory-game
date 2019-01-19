@@ -148,3 +148,25 @@ h1 {
 .moves {
     margin-right: 30px;
 }
+
+/* Extra small devices (phones) */
+@media (min-width: 360px) and (max-width: 415px) {
+    .deck {
+        width: 340px;
+        min-height: 400px;
+        padding: 12px; 
+    }
+    
+    .deck .card {
+        height: 66px;
+        width: 66px;
+    }
+
+    .score-panel {
+        padding-left: 30px;
+    }
+
+    .restart {
+        padding-right: 30px;
+    }
+}
