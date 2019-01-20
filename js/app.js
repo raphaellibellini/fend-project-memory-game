@@ -93,12 +93,10 @@ function shuffle(array) {
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
 function turnCard(card){
-    //console.log("VIREI");
     $(card).toggleClass("open show");
 }
 
 function addOpenedCard(card){
-    //console.log(openedCards);
     openedCards.push(card);
 }
 
@@ -154,8 +152,8 @@ function win(){
 
         let htmlStars = $('.stars').html();
         $('.playerStars').html(htmlStars);
-        $('.playerStars').toggleClass("stars");
-        $('.modal-body').toggleClass("score-panel");
+        $('.playerStars').toggleClass("stars-modal");
+        $('.modal-body').toggleClass("score-panel-modal");
 
         btnPlay.onclick = function(){
             modal.style.display ="none";

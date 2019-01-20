@@ -136,17 +136,29 @@ h1 {
     text-align: center;
 }
 
-.modal-body {
-    text-align: center;
-    margin: 0 auto;
-}
-
 #btnPlay {
     margin: 10px 0;
 }
 
 .moves {
     margin-right: 30px;
+}
+
+.score-panel-modal {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.score-panel-modal .stars-modal {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    margin: 0 5px 0 0;
+}
+
+.score-panel-modal .stars-modal li {
+    list-style: none;
+    display: inline-block;
 }
 
 /* Extra small devices (phones) */
@@ -169,4 +181,8 @@ h1 {
     .restart {
         padding-right: 30px;
     }
-}
+
+    /* Modal Content/Box */
+    .modal-content {
+        width: 80%; /* Could be more or less, depending on screen size */
+    }
