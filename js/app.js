@@ -133,7 +133,7 @@ function match(){
             console.log(openedCards);
             openedCards = [];
             console.log(openedCards);
-        }, 200);
+        }, 700);
     }
 }
 
@@ -209,20 +209,23 @@ function restart(){
 
 
 $('.deck').on('click', function (evt){
-    //console.log(evt.target);
-    // sometimes click on <li> and another on <i>
-    if((evt.target).classList.contains('card')){
-        if(!(evt.target).classList.contains('show')){
-            turnCard(evt.target);
-            addOpenedCard(evt.target);
+    if(openedCards.length < 2){
+        //console.log(evt.target);
+        // sometimes click on <li> and another on <i>
+        if((evt.target).classList.contains('card')){
+            if(!(evt.target).classList.contains('show')){
+                turnCard(evt.target);
+                addOpenedCard(evt.target);
+            }
+            if(openedCards.length === 2){
+                incrementMoves();
+                decreaseStar();
+                match();
+            }
+            win();
         }
-        if(openedCards.length === 2){
-            incrementMoves();
-            decreaseStar();
-            match();
-        }
-        win();
     }
+    
 });
 
 $('.restart').on('click', restart);
