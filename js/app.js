@@ -169,8 +169,8 @@ function win(){
 
         let htmlStars = $('.stars').html();
         $('.playerStars').html(htmlStars);
-        $('.playerStars').toggleClass("stars-modal");
-        $('.modal-body').toggleClass("score-panel-modal");
+        $('.playerStars').addClass("stars-modal");
+        $('.modal-body').addClass("score-panel-modal");
 
         btnPlay.onclick = function(){
             modal.style.display ="none";
