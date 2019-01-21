@@ -38,7 +38,7 @@ function timer () {
         $('#minutes').text(minutes);
     }
     
-    console.log(minutes + ":" + i);
+    //console.log(minutes + ":" + i);
     i++;
     if(i === 60) {
         i = 0;
@@ -103,20 +103,37 @@ function addOpenedCard(card){
 function match(){
     if(openedCards[0].children[0].classList[1] === 
     openedCards[1].children[0].classList[1]){
-        //console.log("cartas iguais");
+        console.log("cartas iguais");
         $(openedCards[0]).toggleClass("match");
         $(openedCards[1]).toggleClass("match");
-        hits++;
+        $(openedCards[0]).toggleClass("animated");
+        $(openedCards[1]).toggleClass("animated");
+        $(openedCards[0]).toggleClass("tada");
+        $(openedCards[1]).toggleClass("tada");
+        console.log(openedCards);
         openedCards = [];
+        console.log(openedCards);
+        hits++;
     }else{
-        //console.log("cartas diferentes");
+        console.log("cartas diferentes");
+        $(openedCards[0]).toggleClass("animated");
+        $(openedCards[1]).toggleClass("animated");
+        $(openedCards[0]).toggleClass("shake");
+        $(openedCards[1]).toggleClass("shake");
+
         setTimeout(function(){
             $(openedCards[0]).toggleClass("open");
             $(openedCards[1]).toggleClass("open");
             $(openedCards[0]).toggleClass("show");
             $(openedCards[1]).toggleClass("show");
+            $(openedCards[0]).toggleClass("animated");
+            $(openedCards[1]).toggleClass("animated");
+            $(openedCards[0]).toggleClass("shake");
+            $(openedCards[1]).toggleClass("shake");
+            console.log(openedCards);
             openedCards = [];
-        }, 250);
+            console.log(openedCards);
+        }, 200);
     }
 }
 
