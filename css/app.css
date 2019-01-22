@@ -1,3 +1,8 @@
+@font-face {
+    font-family: 'Super Plumber Brothers';
+    src: local('Super Plumber Brothers'), url('../font/Super Plumber Brothers.ttf');
+}
+
 html {
     box-sizing: border-box;
 }
@@ -17,8 +22,9 @@ body {
 }
 
 body {
-    background: #ffffff url('../img/geometry2.png'); /* Background pattern from Subtle Patterns */
+    background: url('../img/fundoAmarelo.jpg'); /* Background pattern from Subtle Patterns */
     font-family: 'Coda', cursive;
+    font-size: 20px;
 }
 
 .container {
@@ -29,8 +35,11 @@ body {
 }
 
 h1 {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Super Plumber Brothers', sans-serif;
     font-weight: 300;
+    font-size: 40px;
+    color: #e60000;
+    margin: 10px;
 }
 
 /*
@@ -39,7 +48,7 @@ h1 {
 
 .deck {
     width: 660px;
-    min-height: 680px;
+    min-height: 600px;
     background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
     padding: 32px;
     border-radius: 10px;
@@ -54,9 +63,9 @@ h1 {
 .deck .card {
     height: 125px;
     width: 125px;
-    background: #2e3d49;
+    background: url('../img/questionBlock.png') round;
     font-size: 0;
-    color: #ffffff;
+    color: #fff;
     border-radius: 8px;
     cursor: pointer;
     display: flex;
@@ -67,18 +76,22 @@ h1 {
 
 .deck .card.open {
     transform: rotateY(0);
-    background: #02b3e4;
+    background: #fff;
     cursor: default;
-}
-
-.deck .card.show {
-    font-size: 33px;
 }
 
 .deck .card.match {
     cursor: default;
-    background: #02ccba;
-    font-size: 33px;
+}
+
+.img-hidden {
+    visibility: hidden;
+}
+
+.img-visible {
+    width: 90%;
+    height: 90%;
+    visibility: visible;
 }
 
 /*
@@ -106,6 +119,10 @@ h1 {
 .score-panel .restart {
     float: right;
     cursor: pointer;
+    border-radius: 50%;
+    display: inline-block;
+    height: 14%;
+    width: 10%;
 }
 
 /*
@@ -138,6 +155,16 @@ h1 {
 
 #btnPlay {
     margin: 10px 0;
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+    text-align: center;
+    outline: none;
+    color: #fff;
+    background-color: #e60000;
+    border: none;
+    border-radius: 10px;
 }
 
 .moves {
@@ -161,6 +188,10 @@ h1 {
     display: inline-block;
 }
 
+.stars-modal {
+    color: #ffde03;
+}
+
 /* Extra small devices (phones) */
 @media (min-width: 360px) and (max-width: 415px) {
     .deck {
@@ -179,10 +210,24 @@ h1 {
     }
 
     .restart {
-        padding-right: 30px;
+        margin-right: 50px;
+        height: 14%;
+        width: 10%;
     }
 
-    /* Modal Content/Box */
+    body {
+        font-size: 14px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    .img-visible {
+        width: 75%;
+        height: 75%;
+    }
+
     .modal-content {
-        width: 80%; /* Could be more or less, depending on screen size */
+        width: 80%;
     }

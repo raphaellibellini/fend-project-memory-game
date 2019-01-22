@@ -2,34 +2,83 @@
  * Create a list that holds all of your cards
  */
 let cards = [
-'fa-diamond', 
-'fa-paper-plane-o', 
-'fa-anchor', 
-'fa-bolt', 
-'fa-cube', 
-'fa-anchor', 
-'fa-leaf', 
-'fa-bicycle', 
-'fa-diamond', 
-'fa-bomb', 
-'fa-leaf', 
-'fa-bomb', 
-'fa-bolt', 
-'fa-bicycle', 
-'fa-paper-plane-o', 
-'fa-cube'
+{
+'name': 'cloudFlower',
+'url': 'img/cloudFlower.png'
+},
+{
+'name': 'fireFlower',
+'url': 'img/fireFlower.png'
+},
+{
+'name': 'superAcorn',
+'url': 'img/superAcorn.png'
+},
+{
+'name': 'beeMushroom',
+'url': 'img/beeMushroom.jpg'
+},
+{
+'name': 'superMushroom', 
+'url': 'img/superMushroom.jpg'
+},
+{
+'name': 'superAcorn',
+'url': 'img/superAcorn.png'
+},
+{
+'name': 'superLeaf', 
+'url': 'img/superLeaf.jpg'
+},
+{
+'name': 'iceFlower',
+'url': 'img/iceFlower.png'
+},
+{
+'name': 'cloudFlower',
+'url': 'img/cloudFlower.png'
+},
+{
+'name': 'superBell',
+'url': 'img/superBell.png'
+},
+{
+'name': 'superLeaf', 
+'url': 'img/superLeaf.jpg'
+},
+{
+'name': 'superBell',
+'url': 'img/superBell.png'
+},
+{
+'name': 'beeMushroom',
+'url': 'img/beeMushroom.jpg'
+},
+{
+'name': 'iceFlower',
+'url': 'img/iceFlower.png'
+},
+{
+'name': 'fireFlower',
+'url': 'img/fireFlower.png'
+},
+{
+'name': 'superMushroom', 
+'url': 'img/superMushroom.jpg'
+},
 ];
+
 let openedCards = [];
 let moves = 0;
 let hits = 0;
 let minutes = 0;
-let i = 1;
+let seconds = 1;
 
 function timer () {
-    if(i < 10){
-        $('#seconds').text("0" + i);
+    if(seconds < 10){
+        $('#seconds').text("0" + seconds);
     }else{
-        $('#seconds').text(i);
+        $('#seconds').text(seconds);
     }
 
     if(minutes < 10){
@@ -38,10 +87,9 @@ function timer () {
         $('#minutes').text(minutes);
     }
     
-    //console.log(minutes + ":" + i);
-    i++;
-    if(i === 60) {
-        i = 0;
+    seconds++;
+    if(seconds === 60) {
+        seconds = 0;
         minutes++;   
     }
 }
@@ -58,7 +106,7 @@ function displayCards(){
     // using fragment to improve performance
     const fragment = document.createDocumentFragment();
     for(const card of cards){
-        $(fragment).append('<li class="card"><i class="fa ' + card +'"></i></li>');
+        $(fragment).append('<li class="card"><img class="img-hidden" src="'+card['url']+'"></img></li>');
     }
     $('.deck').append(fragment);
 }
@@ -93,7 +141,8 @@ function shuffle(array) {
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
 function turnCard(card){
-    $(card).toggleClass("open show");
+    $(card).toggleClass("open");
+    $(card).children("img").toggleClass("img-hidden img-visible");
 }
 
 function addOpenedCard(card){
@@ -101,21 +150,17 @@ function addOpenedCard(card){
 }
 
 function match(){
-    if(openedCards[0].children[0].classList[1] === 
-    openedCards[1].children[0].classList[1]){
-        console.log("cartas iguais");
+    if(openedCards[0].children[0].getAttribute('src') === 
+    openedCards[1].children[0].getAttribute('src')){
         $(openedCards[0]).toggleClass("match");
         $(openedCards[1]).toggleClass("match");
         $(openedCards[0]).toggleClass("animated");
         $(openedCards[1]).toggleClass("animated");
         $(openedCards[0]).toggleClass("tada");
         $(openedCards[1]).toggleClass("tada");
-        console.log(openedCards);
         openedCards = [];
-        console.log(openedCards);
         hits++;
     }else{
-        console.log("cartas diferentes");
         $(openedCards[0]).toggleClass("animated");
         $(openedCards[1]).toggleClass("animated");
         $(openedCards[0]).toggleClass("shake");
@@ -124,15 +169,13 @@ function match(){
         setTimeout(function(){
             $(openedCards[0]).toggleClass("open");
             $(openedCards[1]).toggleClass("open");
-            $(openedCards[0]).toggleClass("show");
-            $(openedCards[1]).toggleClass("show");
+            $(openedCards[0]).children("img").toggleClass("img-hidden img-visible");
+            $(openedCards[1]).children("img").toggleClass("img-hidden img-visible");
             $(openedCards[0]).toggleClass("animated");
             $(openedCards[1]).toggleClass("animated");
             $(openedCards[0]).toggleClass("shake");
             $(openedCards[1]).toggleClass("shake");
-            console.log(openedCards);
             openedCards = [];
-            console.log(openedCards);
         }, 700);
     }
 }
@@ -181,7 +224,7 @@ function win(){
 
 function restart(){
     clearInterval(clock);
-    i = 1;
+    seconds = 1;
     $('#seconds').text("00");
     
     minutes = 0;
@@ -210,10 +253,10 @@ function restart(){
 
 $('.deck').on('click', function (evt){
     if(openedCards.length < 2){
-        //console.log(evt.target);
-        // sometimes click on <li> and another on <i>
+        console.log(evt.target);
+        // sometimes click on <li> and another on <img>
         if((evt.target).classList.contains('card')){
-            if(!(evt.target).classList.contains('show')){
+            if(!(evt.target).classList.contains('open')){
                 turnCard(evt.target);
                 addOpenedCard(evt.target);
             }
