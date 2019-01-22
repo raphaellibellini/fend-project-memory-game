@@ -6,6 +6,8 @@
 * [Instructions](#instructions)
 * [Contributing](#contributing)
 
+![Uploading screenshot.png…]()
+
 ## How to play
 
 The player to pick two cards of their choosing. If the cards have the same rank (two diamonds, for example), the player keeps the pair. If not, the cards are returned to their face-down position. Play until all the cards have been matched.
