@@ -1,29 +1,23 @@
-# Memory Game Project
+# Memory Challenge Super Mario
 
-## Table of Contents
-
-* [How to play](#how-to-play)
-* [Instructions](#instructions)
-* [Contributing](#contributing)
-
-![screenshot](img/screenshot.png)
+This is a project for Udacity Front-End Web Developer Nanodegree program: A matching game based in Super Mario.
 
 ## How to play
 
-The player to pick two cards of their choosing. If the cards have the same rank (two diamonds, for example), the player keeps the pair. If not, the cards are returned to their face-down position. Play until all the cards have been matched.
+The player needs to pick two cards of their choosing. If the cards have the same rank (two super mushrooms, for example), the player keeps the pair. If not, the cards are returned to their face-down position. Play until all the cards have been matched.
 
 At the end of the game it will be shown how much time you have taken and its performance, which is measured by the number of stars. Stars decrease according to the amount of movement they needed to win.
 
-## Instructions
+Play the game on: https://raphaellibellini.github.io/fend-project-memory-game/
 
-The starter project has some HTML and CSS styling to display a static version of the Memory Game project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
+## Screenshot
 
-To get started, open `js/app.js` and start building out the app's functionality
+![screenshot](img/screenshot.png)
 
-For specific, detailed instructions, look at the project instructions in the [Udacity Classroom](https://classroom.udacity.com/me).
+## Animation
 
-## Contributing
+animate.css -http://daneden.me/animate Version - 3.6.0
 
-This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
+Licensed under the MIT license - http://opensource.org/licenses/MIT
 
-For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
+Copyright (c) 2018 Daniel Eden
