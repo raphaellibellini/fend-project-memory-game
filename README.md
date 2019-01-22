@@ -6,7 +6,7 @@
 * [Instructions](#instructions)
 * [Contributing](#contributing)
 
-![Uploading screenshot.png…]()
+![screenshot](img/screenshot.png)
 
 ## How to play
 
